@@ -50,6 +50,11 @@ RUN apt-get update && apt-get install software-properties-common \
 # Cleanup
     && apt-get purge software-properties-common \
     && rm -rf /tmp/* /var/lib/apt/lists/* /root/.cache/*
+    
+RUN apt-get update -qq && apt-get install -qqy \
+    ess \
+    libcanberra-gtk-module \
+    libcanberra-gtk3-module
 
 ENV UNAME="emacser" \
     GNAME="emacs" \
